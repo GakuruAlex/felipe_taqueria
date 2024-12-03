@@ -11,9 +11,9 @@ class FelipeTaqueria:
     "Taco": 3.00,
     "Tortilla Salad": 8.00
     }
-        self.total = 0
+        self.total_price = 0
     
-    def get_price(self, meal: str) -> float:
+    def get_price(self, meal: str)-> float:
         """_Get price of an item in the menu_
 
         Args:
@@ -26,4 +26,20 @@ class FelipeTaqueria:
                 8.00
         """
         return self.menu[meal.title()]
+    def calculate_total(self, price: float)-> float:
+        """_Calculate the current total price of ordered meal(s)_
+
+        Args:
+            price (float): _Price of recent meal_
+
+        Returns:
+            float: _Total Price of meal(s)_
+        Example:
+            with total at 0
+            >>> calculate_total(8.00)
+                8.00
+        """
+        self.total_price += price
+        return self.total_price
+        
 
