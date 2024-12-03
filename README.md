@@ -1,8 +1,12 @@
+# Felipe's Taqueria #
+
+CS50's Introduction to Programming with Python Problem Set 3 on Exceptions
+
 # Prerequisite #
 clone this repo 
 
 ```bash
-git clone 
+git clone git@github.com:GakuruAlex/felipe_taqueria.git
 ```
 
 change directory to nutrition
