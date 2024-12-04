@@ -11,7 +11,7 @@ class FelipeTaqueria:
     "Taco": 3.00,
     "Tortilla Salad": 8.00
     }
-        self.total_price = 0
+        self.total_price: float = 0.00
     
     def get_price(self, meal: str)-> float:
         """_Get price of an item in the menu_
@@ -25,7 +25,7 @@ class FelipeTaqueria:
             >>> get_price("Tortilla Salad")
                 8.00
         """
-        return self.menu[meal.title()]
+        return round(self.menu[meal.title()], 2)
     def calculate_total(self, price: float)-> float:
         """_Calculate the current total price of ordered meal(s)_
 
@@ -40,6 +40,29 @@ class FelipeTaqueria:
                 8.00
         """
         self.total_price += price
-        return self.total_price
+        round(self.total_price, 2)
+        return round(self.total_price, 2)
+    def main(self):
+        while True:
+            try:
+                meal = input("Item: ").title()
+            except EOFError:
+                break
+            else:
+                if meal == "":
+                    break
+                try:
+                    price = self.get_price(meal)
+                except KeyError:
+                    print(f"{meal} is not on the menu!")
+                    return self.main()
+                else:
+                    total = self.calculate_total(price)
+                    print(f"Total: ${round(total, 2):.2f}")
+
+if __name__ == "__main__":
+    felipe_taqueria = FelipeTaqueria()
+    felipe_taqueria.main()
+                    
         
 
