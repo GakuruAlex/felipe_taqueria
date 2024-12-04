@@ -22,3 +22,16 @@ class TestCalculatePrice:
     felipe_taqueria = FelipeTaqueria()
     def test_calculate_price(self, price, total):
         assert self.felipe_taqueria.calculate_total(price) == total
+
+
+class TestMain:
+    def test_main_with_several_items(self,monkeypatch, capsys):
+        felipe_taqueria = FelipeTaqueria()
+        mock_inputs = iter(["bowl", "Baja Taco", "Burrito", "Quesadilla", ""])
+        monkeypatch.setattr('builtins.input', lambda _: next(mock_inputs))
+        
+        felipe_taqueria.main()
+        
+        captured = capsys.readouterr()
+        
+        assert captured.out == "Total: $8.50\nTotal: $12.75\nTotal: $20.25\nTotal: $28.75\n"
