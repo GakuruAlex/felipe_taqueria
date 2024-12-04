@@ -9,7 +9,7 @@ clone this repo
 git clone git@github.com:GakuruAlex/felipe_taqueria.git
 ```
 
-change directory to nutrition
+change directory to felipe_taqueria
 
 ```bash
     cd felipe_taqueria
